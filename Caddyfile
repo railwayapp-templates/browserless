@@ -1,0 +1,15 @@
+# global options
+{
+	admin off # theres no need for the admin api in railway's environment
+	persist_config off # storage isn't persistent anyway
+	auto_https off # railway handles https for us, this could in some cases cause issues if left enabled
+	# runtime logs
+	log {
+		format console # set runtime log format to console mode 
+	}
+}
+
+# site block, listens on the $PORT environment variable, automatically assigned by railway
+:{$BROWSER_PORT_PRIVATE} {
+	reverse_proxy /* http://127.0.0.1:{$PORT}
+}
