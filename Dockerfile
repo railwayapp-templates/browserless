@@ -20,8 +20,8 @@ COPY --from=caddy /usr/bin/caddy /usr/bin/caddy
 
 COPY --from=parallel /usr/bin/parallel /usr/bin/parallel
 
-CMD exec parallel --ungroup --halt now,done=1 ::: \
-    "node ./build/index.js" \
-    "caddy run --config Caddyfile --adapter caddyfile" 2>&1; \
-    exit 1
+COPY --chmod=755 start.sh ./
 
+ENTRYPOINT ["/bin/sh"]
+
+CMD ["start.sh"]
