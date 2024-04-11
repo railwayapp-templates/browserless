@@ -20,7 +20,7 @@ COPY --from=caddy /usr/bin/caddy /usr/bin/caddy
 
 COPY --from=parallel /usr/bin/parallel /usr/bin/parallel
 
-COPY --chmod=755 start.sh ./
+COPY --chmod=755 scripts/* ./
 
 ENTRYPOINT ["/bin/sh"]
 
