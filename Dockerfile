@@ -20,7 +20,7 @@ COPY --from=caddy /usr/bin/caddy /usr/bin/caddy
 
 COPY --from=parallel /usr/bin/parallel /usr/bin/parallel
 
-CMD parallel --ungroup --halt now,done=1 ::: \
+CMD exec parallel --ungroup --halt now,done=1 ::: \
     "node ./build/index.js" \
     "caddy run --config Caddyfile --adapter caddyfile" 2>&1; \
     exit 1
