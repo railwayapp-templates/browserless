@@ -40,3 +40,4 @@ https://github.com/brody192/selenium-example (Node)
 
 https://github.com/brody192/selenium-example-python
 
+https://github.com/brody192/chromedp-example (GoLang)
